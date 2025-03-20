@@ -109,7 +109,7 @@ console.log(state);
         <form onSubmit={(event) => handleSubmit(event)}>
           <div className={style.brand}>
             {/* <img src={logo} className={style.logo}></img> */}
-            <span className={style.title}>NYAYMITRA</span>
+            <span className={style.title}>NyaySetu</span>
           </div>
           <input
             type="text"

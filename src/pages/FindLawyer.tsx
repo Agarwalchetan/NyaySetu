@@ -1,27 +1,31 @@
-import React,{useEffect} from 'react';
+import React,{useEffect,useState} from 'react';
 import { Users } from 'lucide-react';
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import LawyerCard from "./lawyercard";
 const FindLawyer = () => {
 
 
 
-const navigate=useNavigate();
+
+const [lawyer, setlawyer] = useState([]);
+ 
 
 
-
-  async function fun() {
-    if (!localStorage.getItem("user")) {
-      navigate("/signup");
-    } 
+  async function curr() {
+    const data = await axios.get(
+      `${
+        import.meta.env.MODE === "development"
+          ? `http://localhost:3000/api/alllawyers`
+          : `/api/alllawyers`
+      }`
+    );
+    //  console.log(data.data.lawyer);
+  setlawyer(data.data.lawyer)
   }
-
   useEffect(() => {
-    fun();
+    curr();
   }, []);
-
-
-
-
 
 
 
@@ -40,9 +44,37 @@ const navigate=useNavigate();
         </p>
       </div>
       {/* Placeholder for lawyer listing */}
-      <div className="mt-12 bg-white shadow-lg rounded-lg p-6">
+      {/* <div className="mt-12 bg-white shadow-lg rounded-lg p-6">
         <p className="text-gray-600">Lawyer directory coming soon...</p>
-      </div>
+      </div> */}
+
+
+
+{lawyer.map((prop,index) => (
+        <LawyerCard
+        key={index}
+        id={prop.
+          _id
+          }
+          name={prop.name}
+          field={prop.practiceAreas}
+          experience={prop.yearofExperience}
+          lawfirm={prop.lawFirm}
+          contact={prop.contactNo}
+          email={prop.email}
+          officeaddress={prop.officeAddress}
+        ></LawyerCard>
+      ))}
+
+
+
+
+
+
+
+
+
+
     </div>
   );
 };

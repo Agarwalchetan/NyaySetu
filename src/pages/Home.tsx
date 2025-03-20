@@ -7,19 +7,6 @@ import { Link } from 'react-router-dom';
 import AnimatedSection from '../components/AnimatedSection';
 
 const Home = () => {
-const navigate=useNavigate();
-
-
-
-  async function fun() {
-    if (!localStorage.getItem("user")) {
-      navigate("/signup");
-    } 
-  }
-
-  useEffect(() => {
-    fun();
-  }, []);
 
 
 

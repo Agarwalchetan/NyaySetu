@@ -1,9 +1,11 @@
 import React from "react";
 import style from "./lawyerbook.module.css";
 import { ToastContainer, toast } from "react-toastify";
+import { Navigate, NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 const LawyerCard = (props) => {
+    const navigate = useNavigate();
   const toastOptions = {
     position: "bottom-right",
     autoClose: 5000,
@@ -13,6 +15,9 @@ const LawyerCard = (props) => {
   };
   const handleSubmit=async(props)=>{
     const client= JSON.parse(localStorage.getItem("user"))
+    if (!client) {
+      navigate("/signup")
+    }
     console.log(client);
     
 const clientId=client._id;

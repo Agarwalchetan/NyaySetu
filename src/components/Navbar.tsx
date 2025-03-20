@@ -15,6 +15,8 @@ const Navbar = () => {
     { name: 'Case Prediction', path: '/case-prediction' },
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
+    { name: 'Sinup', path: '/signup' },
+
   ];
 
   useEffect(() => {

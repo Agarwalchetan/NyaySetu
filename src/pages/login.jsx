@@ -88,7 +88,7 @@ email,
         <form onSubmit={(event) => handleSubmit(event)}>
           <div className={style.brand}>
        
-         <span className={style.title}>NYAYMITRA</span>
+         <span className={style.title}>NyaySetu</span>
           </div>
           <input
             type="text"

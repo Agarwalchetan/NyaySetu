@@ -92,20 +92,6 @@ const DocumentAnalysis = () => {
 
 
 
-const navigate=useNavigate();
-
-
-
-  async function fun() {
-    if (!localStorage.getItem("user")) {
-      navigate("/signup");
-    } 
-  }
-
-  useEffect(() => {
-    fun();
-  }, []);
-
 
 
 
