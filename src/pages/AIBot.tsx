@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import { MessageSquare, Send, User, Bot, ChevronRight, Star, Quote } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-
+import { useNavigate } from "react-router-dom";
 interface Message {
   id: string;
   text: string;
@@ -68,6 +68,24 @@ const previousQuestions = [
 ];
 
 const AIBot = () => {
+
+
+const navigate=useNavigate();
+
+ async function fun() {
+    if (!localStorage.getItem("user")) {
+      navigate("/signup");
+    } 
+  }
+
+  useEffect(() => {
+    fun();
+  }, []);
+
+
+
+
+
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',

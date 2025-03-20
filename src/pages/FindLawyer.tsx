@@ -1,7 +1,33 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { Users } from 'lucide-react';
-
+import { useNavigate } from "react-router-dom";
 const FindLawyer = () => {
+
+
+
+const navigate=useNavigate();
+
+
+
+  async function fun() {
+    if (!localStorage.getItem("user")) {
+      navigate("/signup");
+    } 
+  }
+
+  useEffect(() => {
+    fun();
+  }, []);
+
+
+
+
+
+
+
+
+
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="text-center">

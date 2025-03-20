@@ -10,6 +10,10 @@ import CasePrediction from './pages/CasePrediction';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
+import {Signup} from "./pages/signup";
+import { Login } from "./pages/login";
+import {Lawyerdetails} from "./pages/lawyerdetails"
+import Lawyerbook from "./pages/lawyerbook"
 
 function App() {
   const pageVariants = {
@@ -50,6 +54,10 @@ function App() {
             >
               <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/signup" element={<Signup/>}/>
+                <Route path="/login" element={<Login/>}/>
+                <Route path="/lawyerdetails" element={<Lawyerdetails/>}/>
+                <Route path="/lawyerbook" element={<Lawyerbook/>}/>
                 <Route path="/ai-bot" element={<AIBot />} />
                 <Route path="/find-lawyer" element={<FindLawyer />} />
                 <Route path="/document-analysis" element={<DocumentAnalysis />} />

@@ -1,7 +1,34 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
+import React,{useEffect} from 'react';
 import { Scale } from "lucide-react";
 
 const CasePrediction = () => {
+
+
+
+const navigate=useNavigate();
+
+
+
+  async function fun() {
+    if (!localStorage.getItem("user")) {
+      navigate("/signup");
+    } 
+  }
+
+  useEffect(() => {
+    fun();
+  }, []);
+
+
+
+
+
+
+
+
+
+
   return (
     <div className="bg-gray-100 min-h-screen">
       {/* Hero Section */}

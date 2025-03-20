@@ -1,7 +1,7 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback,useEffect } from 'react';
 import { FileText, Upload, AlertCircle, CheckCircle, X, Download, Eye, FileSearch, Star } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-
+import { useNavigate } from "react-router-dom";
 interface AnalysisResult {
   type: 'risk' | 'suggestion' | 'info';
   title: string;
@@ -89,6 +89,31 @@ const testimonials: Testimonial[] = [
 ];
 
 const DocumentAnalysis = () => {
+
+
+
+const navigate=useNavigate();
+
+
+
+  async function fun() {
+    if (!localStorage.getItem("user")) {
+      navigate("/signup");
+    } 
+  }
+
+  useEffect(() => {
+    fun();
+  }, []);
+
+
+
+
+
+
+
+
+
   const [isDragging, setIsDragging] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);

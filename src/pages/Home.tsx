@@ -1,10 +1,34 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
+import { useNavigate } from "react-router-dom";
+import React,{useEffect} from 'react';
 import { MessageSquare, Users, FileText, Scale } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import AnimatedSection from '../components/AnimatedSection';
 
 const Home = () => {
+const navigate=useNavigate();
+
+
+
+  async function fun() {
+    if (!localStorage.getItem("user")) {
+      navigate("/signup");
+    } 
+  }
+
+  useEffect(() => {
+    fun();
+  }, []);
+
+
+
+
+
+
+
+
+
   const features = [
     {
       icon: <MessageSquare className="h-6 w-6" />,
