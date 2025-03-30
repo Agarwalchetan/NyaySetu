@@ -8,8 +8,7 @@ async function checkModel(modelName) {
     // Fetch details about a specific model
     const model = await genAI.getGenerativeModel({ model: modelName });
 
-    console.log(`Model "${modelName}" is available.`);
-    console.log("Details:", model);
+   
   } catch (error) {
     console.error(`Error fetching model "${modelName}":`, error);
   }
