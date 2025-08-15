@@ -17,7 +17,7 @@ export const Signup = () => {
 
   const toastOptions = {
     position: "bottom-right",
-    autoClose: 2500,
+    autoClose: 5000,
     pauseOnHover: true,
     draggable: true,
     theme:"colored",
@@ -45,18 +45,14 @@ export const Signup = () => {
   };
   useEffect(() => {
     if (localStorage.getItem("user")) {
-      localStorage.removeItem("user");
-
-      window.location.reload();
-      navigate("/signup")
-      
+      navigate("/");
     }
   }, []);
 
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+console.log(state);
 
     if (handleValidation()) {
       const { password, email, name, select } = state;
@@ -113,7 +109,7 @@ export const Signup = () => {
         <form onSubmit={(event) => handleSubmit(event)}>
           <div className={style.brand}>
             {/* <img src={logo} className={style.logo}></img> */}
-            <span className={style.title}>NYAYSETU</span>
+            <span className={style.title}>NyaySetu</span>
           </div>
           <input
             type="text"

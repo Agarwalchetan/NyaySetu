@@ -8,28 +8,15 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-
-  const client = localStorage.getItem("user")
-  ? JSON.parse(localStorage.getItem("user")!)
-  : null;
-  const handleLogout = () => {
-  
-    
-    localStorage.removeItem("user");
-    window.location.reload(); // Optional: Refresh the page after logout
-};
   const navItems = [
     { name: 'AI Bot', path: '/ai-bot' },
     { name: 'Find Lawyer', path: '/find-lawyer' },
-    { name: 'Appointments', path: '/allapointments' },
     { name: 'Document Analysis', path: '/document-analysis' },
     { name: 'Case Prediction', path: '/case-prediction' },
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
-    ...(client 
-      ? [{ name: 'Logout', onClick: handleLogout,path: '/signup' }] 
-      : [{ name: 'Signup', path: '/signup' }]
-  )
+    { name: 'Sinup', path: '/signup' },
+
   ];
 
   useEffect(() => {

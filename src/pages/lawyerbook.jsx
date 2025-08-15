@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import LawyerCard from "./lawyercard.jsx";
-import style from "../pages/findlawyer.module.css"
+import LawyerCard from "./lawyercard";
 
-const FindLawyer = () => {
+const Lawyerbook = () => {
+
   const [lawyer, setlawyer] = useState([]);
+ 
+
 
   async function curr() {
     const data = await axios.get(
@@ -14,28 +16,22 @@ const FindLawyer = () => {
           : `/api/alllawyers`
       }`
     );
- 
-    setlawyer(data.data.lawyer);
+    //  console.log(data.data.lawyer);
+  setlawyer(data.data.lawyer)
   }
   useEffect(() => {
     curr();
   }, []);
 
-
-
+  //  console.log(lawyer);
   return (
     <>
-    <div className={style.main}>
-    {lawyer.map((prop, index) => (
-     
-      
+      {lawyer.map((prop,index) => (
         <LawyerCard
-          key={index}
-          id={prop._id}
-          currentPosition={prop.
-            currentPosition}
-         
-          education={prop.Education}
+        key={index}
+        id={prop.
+          _id
+          }
           name={prop.name}
           field={prop.practiceAreas}
           experience={prop.yearofExperience}
@@ -44,12 +40,9 @@ const FindLawyer = () => {
           email={prop.email}
           officeaddress={prop.officeAddress}
         ></LawyerCard>
-        
       ))}
-    </div>
-     
     </>
   );
 };
 
-export default FindLawyer;
+export default Lawyerbook;

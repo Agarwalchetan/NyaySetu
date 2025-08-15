@@ -1,7 +1,19 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
+import React,{useEffect} from 'react';
 import { Scale } from "lucide-react";
 
 const CasePrediction = () => {
+
+
+
+
+
+
+
+
+
+
+
   return (
     <div className="bg-gray-100 min-h-screen">
       {/* Hero Section */}

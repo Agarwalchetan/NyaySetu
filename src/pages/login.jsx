@@ -16,7 +16,7 @@ export const Login = () => {
 
   const toastOptions = {
     position: "bottom-right",
-    autoClose: 2500,
+    autoClose: 5000,
     pauseOnHover: true,
     draggable: true,
     theme: "colored",
@@ -49,7 +49,7 @@ if (select==="lawyer") {
     email,
     name,
   });
-
+  console.log(data.user);
   
   if (data.status === false) {
     toast.error(data.message, toastOptions);
@@ -60,12 +60,6 @@ if (select==="lawyer") {
     localStorage.setItem("user", JSON.stringify(data.user));
  
   }
-  console.log(select);
-  navigate("/")
-  window.location.reload();
-  
-
-
 } else {
   const { data } = await axios.post(
     `${import.meta.env.MODE==="development" ? `http://localhost:3000/api/userlogin` : `/api/userlogin` }`
@@ -82,9 +76,7 @@ email,
     setstate({ username: "", password: "" });
     toast.success("Logged-in successfully ", toastOptions);
     localStorage.setItem("user", JSON.stringify(data.user));
-    window.location.reload();
-    navigate("/")
-    
+     navigate("/lawyerbook")
   }
 }
      
@@ -96,7 +88,7 @@ email,
         <form onSubmit={(event) => handleSubmit(event)}>
           <div className={style.brand}>
        
-         <span className={style.title}>NYAYSETU</span>
+         <span className={style.title}>NyaySetu</span>
           </div>
           <input
             type="text"
